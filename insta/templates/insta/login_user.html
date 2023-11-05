@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+{% block main %}
+<div class="hero-wrap ftco-degree-bg" style="background-image: url({% static 'insta/images/bg_1.jpg' %});"
+     data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
+            <div class="col-lg-8 ftco-animate">
+                <div class="card p-3 mb-5">
+                    <h3 class="text-center mb-3">{{ title }}</h3>
+                    <form action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" class="btn btn-primary">
+                                Войти
+                            </button>
+                            <h6 class="d-flex align-items-center">Нет аккаунта ?<a class="navbar-brand text-danger"
+                                                                                   href="{% url 'registration_user' %}">
+                                Регистрация
+                            </a></h6>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock main %}
